@@ -18,9 +18,9 @@ public class BaseTest {
 	}
 
 //	@AfterTest(description = "Stop browser")
-//	public void stopDriver() {
+//	public void closeBrowser() {
 //		steps.closeBrowser();
-//		System.out.println("Quit browser");
+//		System.out.println("Browser closed");
 //	}
 
 }
