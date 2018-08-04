@@ -13,17 +13,15 @@ public class Steps {
 
 	private WebDriver driver;
 
-		
 	public void initBrowser() {
 		driver = DriverSingleton.getDriver();
 	}
-	
+
 	public void closeBrowser() {
 		DriverSingleton.closeDriver();
 	}
 
-	
-	public void findTickets(String fromCity, String destinationCity)  {
+	public void findTickets(String fromCity, String destinationCity) {
 		MainPage mp = PageFactory.initElements(driver, MainPage.class);
 		mp.openPage();
 		mp.enterFromField(fromCity);
@@ -33,13 +31,9 @@ public class Steps {
 		mp.clickSearchButton();
 		mp.clickFareCalendar();
 		
-		mp.minCostFlight();
-	
-	
-	
+		System.out.println(mp.allDaysTickets());// method
+
 
 	}
-	
-	
-	
+
 }

@@ -1,7 +1,9 @@
 package pages;
 
 import java.util.ArrayList;
-
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -50,6 +52,9 @@ public class MainPage extends AbstractPage {
 	@FindBy(css = "#matrix div.content")
 	List<WebElement> Costs;
 
+	@FindBy(xpath = "//*[@id=\"matrix\"]/div[1]/div[1]/div[2]/a")
+	private WebElement next7Days;
+
 	private ArrayList<Float> cost() {
 
 		ArrayList<Float> cost = new ArrayList<Float>();
@@ -72,9 +77,9 @@ public class MainPage extends AbstractPage {
 		return cost;
 	}
 
-	public String minCostFlight() {
+	public String costFlight() {
 
-		return minCostOfFligths(datesOut(), cost());
+		return getStringOfCosts(datesOut(), cost());
 
 	}
 
@@ -92,31 +97,16 @@ public class MainPage extends AbstractPage {
 
 		}
 		return dateOut;
-
 	}
 
-
-	private String minCostOfFligths(ArrayList<String> datesOut, ArrayList<Float> cost) {
-
-		Map<Float, String> flights = new TreeMap<Float, String>();
-
-		String Date;
-		String DateOut;
-		int number = 0;
-
-		for (int i = 0; i < 7; i++) {
-			DateOut = datesOut.get(i);
-			Date =" "+ DateOut;
-			if (cost.get(number) != null) {
-				flights.put(cost.get(number), datesOut.get(i));
+	private String getStringOfCosts(ArrayList<String> datesOut, ArrayList<Float> cost) {
+		String result = "";
+		for (int i = 0; i < datesOut.size(); i++) {
+			if (cost.get(i) != null) {
+				result += datesOut.get(i) + ": " + cost.get(i) + "; ";
 			}
-			number += 1;
-			Date = null;
-
 		}
-
-		return InfoTicketPage.writeFirstElementMapConsole(flights);
-
+		return result;
 	}
 
 	public void enterFromField(String fromCity) {
@@ -140,7 +130,6 @@ public class MainPage extends AbstractPage {
 	public void choseDepartureDate() {
 		departureDateField.click();
 		departureDate5.click();
-		
 
 	}
 
@@ -156,6 +145,29 @@ public class MainPage extends AbstractPage {
 		fareCalendar.sendKeys(Keys.ENTER);
 
 	}
+
+	public void clickNext7Days() {
+		next7Days.click();
+
+	}
+
+	public  String allDaysTickets() {
+		int n = 0;
+		String all = null;
+		String seven = null;
+		{
+			while (n < 12) {
+				seven = costFlight();
+			//	System.out.println(costFlight());
+				clickNext7Days();
+				all = all + seven;
+				n++;
+			}
+		}
+		return all;
+	}
+	
+	
 
 	@Override
 	public void openPage() {
