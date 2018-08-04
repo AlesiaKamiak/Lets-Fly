@@ -21,8 +21,7 @@ public class Steps {
 	public void closeBrowser() {
 		DriverSingleton.closeDriver();
 	}
-	
-	
+
 	
 	public void findTickets(String fromCity, String destinationCity)  {
 		MainPage mp = PageFactory.initElements(driver, MainPage.class);
@@ -32,8 +31,15 @@ public class Steps {
 		mp.chooseOneWay();
 		mp.choseDepartureDate();
 		mp.clickSearchButton();
+		mp.clickFareCalendar();
+		
+		mp.minCostFlight();
+	
+	
+	
 
 	}
+	
 	
 	
 }

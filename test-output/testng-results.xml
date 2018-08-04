@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6256" started-at="2018-08-02T20:17:14Z" finished-at="2018-08-02T20:17:20Z">
+  <suite name="Default suite" duration-ms="11159" started-at="2018-08-04T08:16:42Z" finished-at="2018-08-04T08:16:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6256" started-at="2018-08-02T20:17:14Z" finished-at="2018-08-02T20:17:20Z">
+    <test name="Default test" duration-ms="11159" started-at="2018-08-04T08:16:42Z" finished-at="2018-08-04T08:16:54Z">
       <class name="tests.BelaviaTest">
-        <test-method status="PASS" signature="initDriver()[pri:0, instance:tests.BelaviaTest@548a9f61]" name="initDriver" is-config="true" duration-ms="2886" started-at="2018-08-02T23:17:14Z" description="Init browser" finished-at="2018-08-02T23:17:17Z">
+        <test-method status="PASS" signature="initDriver()[pri:0, instance:tests.BelaviaTest@548a9f61]" name="initDriver" is-config="true" duration-ms="4037" started-at="2018-08-04T11:16:43Z" description="Init browser" finished-at="2018-08-04T11:16:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initDriver -->
-        <test-method status="PASS" signature="oneWayTicket()[pri:0, instance:tests.BelaviaTest@548a9f61]" name="oneWayTicket" duration-ms="3354" started-at="2018-08-02T23:17:17Z" finished-at="2018-08-02T23:17:20Z">
+        <test-method status="PASS" signature="oneWayTicket()[pri:0, instance:tests.BelaviaTest@548a9f61]" name="oneWayTicket" duration-ms="7095" started-at="2018-08-04T11:16:47Z" finished-at="2018-08-04T11:16:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- oneWayTicket -->
