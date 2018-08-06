@@ -1,12 +1,8 @@
 package pages;
 
 import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,11 +21,20 @@ public class MainPage extends AbstractPage {
 	@FindBy(xpath = "//*[@id=\"step-2\"]/div[1]/div/label[1]")
 	private WebElement oneWay;
 
+	@FindBy(xpath = "//*[@id=\"step-2\"]/div[1]/div/label[2]")
+	private WebElement bothSides;
+
 	@FindBy(xpath = "//*[@id=\"step-2\"]/div[2]/div[1]/div/a/i")
 	private WebElement departureDateField;
 
-	@FindBy(xpath = "//*[@id=\"calendar\"]/div/div[1]/table/tbody/tr[2]/td[1]/a")
-	private WebElement departureDate5;
+	@FindBy(xpath = "//*[@id=\"calendar\"]/div/div[1]/table/tbody/tr[2]/td[3]/a")
+	private WebElement departureDate7;
+
+	@FindBy(xpath = "//*[@id=\"calendar\"]/div/div[1]/table/tbody/tr[2]/td[7]/a")
+	private WebElement departureDate12;
+
+	@FindBy(xpath = "")
+	private WebElement returnDate20;
 
 	@FindBy(xpath = "//*[@id=\"calendar\"]/div/div[1]/div/div/span[2]")
 	private WebElement departureDateYear5;
@@ -127,9 +132,26 @@ public class MainPage extends AbstractPage {
 		System.out.println("one way chosen");
 	}
 
+	public void chooseBothSides() {
+		bothSides.click();
+		System.out.println("both sides chosen");
+	}
+
 	public void choseDepartureDate() {
 		departureDateField.click();
-		departureDate5.click();
+		departureDate7.click();
+
+	}
+
+	public void choseDepartureDate12() {
+		departureDateField.click();
+		departureDate12.click();
+
+	}
+
+	public void choseDepartureDate20() {
+
+		returnDate20.click();
 
 	}
 
@@ -151,14 +173,13 @@ public class MainPage extends AbstractPage {
 
 	}
 
-	public  String allDaysTickets() {
+	public String allDaysTickets() {
 		int n = 0;
 		String all = null;
 		String seven = null;
 		{
 			while (n < 12) {
 				seven = costFlight();
-			//	System.out.println(costFlight());
 				clickNext7Days();
 				all = all + seven;
 				n++;
@@ -167,7 +188,9 @@ public class MainPage extends AbstractPage {
 		return all;
 	}
 	
-	
+	public void printAllDaysTickets() {
+		System.out.println(allDaysTickets());
+	}
 
 	@Override
 	public void openPage() {

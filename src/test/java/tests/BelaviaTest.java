@@ -9,5 +9,11 @@ public class BelaviaTest extends BaseTest {
 		steps.findTickets("Minsk (MSQ), BY", "Riga (RIX), LV");
 	
 	}
+	
+	@Test
+	public void roundTripTicket()  {
+		steps.findRoundTripTickets("Minsk (MSQ), BY", "Riga (RIX), LV");
+	
+	}
 
 }

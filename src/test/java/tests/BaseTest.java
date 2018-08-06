@@ -17,10 +17,10 @@ public class BaseTest {
 
 	}
 
-//	@AfterTest(description = "Stop browser")
-//	public void closeBrowser() {
-//		steps.closeBrowser();
-//		System.out.println("Browser closed");
-//	}
+	@AfterTest(description = "Stop browser")
+	public void closeBrowser() {
+		steps.closeBrowser();
+		System.out.println("Browser closed");
+	}
 
 }

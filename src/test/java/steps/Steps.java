@@ -1,8 +1,5 @@
 package steps;
 
-import java.beans.Visibility;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -30,10 +27,18 @@ public class Steps {
 		mp.choseDepartureDate();
 		mp.clickSearchButton();
 		mp.clickFareCalendar();
-		
-		System.out.println(mp.allDaysTickets());// method
+		mp.printAllDaysTickets();
+	
 
 
 	}
-
+	public void findRoundTripTickets(String fromCity, String destinationCity) {
+		MainPage mp = PageFactory.initElements(driver, MainPage.class);
+		mp.openPage();
+		mp.enterFromField(fromCity);
+		mp.enterDestinationField(destinationCity);
+		mp.chooseBothSides();
+		mp.choseDepartureDate12();
+		
+	}
 }
